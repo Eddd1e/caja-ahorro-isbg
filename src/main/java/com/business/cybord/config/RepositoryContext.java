@@ -23,7 +23,7 @@ public class RepositoryContext {
 	private DataBaseConfig cloud;
 	
 	@Bean(name = "cajaDatasource")
-	public HikariDataSource cloudrdbmsDatasource() {
+	public HikariDataSource getDatasource() {
 		return DataSourceBuilder.create().type(HikariDataSource.class).url(cloud.getDataSourceUrl())
 				.driverClassName(cloud.getDataSourceClassName()).username(cloud.getDataSourceUser())
 				.password(cloud.getDataSourcePass()).build();
@@ -31,7 +31,7 @@ public class RepositoryContext {
 
 	@Bean(name = "cajaManagerTemplate")
 	@Autowired
-	public JdbcTemplate associateEvaluationLogTemplate(@Qualifier("cajaDatasource") DataSource dsSlave) {
+	public JdbcTemplate getTemplate(@Qualifier("cajaDatasource") DataSource dsSlave) {
 		return new JdbcTemplate(dsSlave);
 	}
 
