@@ -36,6 +36,11 @@ public class User {
 	@NotEmpty
 	@Column(name = "NOMBRE")
 	private String nombre;
+	
+	@NotNull
+	@NotEmpty
+	@Column(name = "NICKNAME")
+	private String nickname;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@CreatedDate
@@ -54,7 +59,15 @@ public class User {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
+	public String getNickname() {
+		return nickname;
+	}
 
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+	
 	public Boolean getActivo() {
 		return activo;
 	}
@@ -89,7 +102,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", activo=" + activo + ", nombre=" + nombre + ", fechaCreacion=" + fechaCreacion
+		return "UserDto [id=" + id + ", activo=" + activo + ", nombre=" + nombre + ", nickname="+nickname+ ", fechaCreacion=" + fechaCreacion
 				+ ", fechaActualizacion=" + fechaActualizacion + "]";
 	}
 

@@ -14,6 +14,7 @@ public class UserDto implements Serializable {
 	private int id;
 	private Boolean activo;
 	private String nombre;
+	private String nickname;
 	private Date fechaCreacion;
 	private Date fechaActualizacion;
 
@@ -32,7 +33,15 @@ public class UserDto implements Serializable {
 	public void setActivo(Boolean activo) {
 		this.activo = activo;
 	}
+	
+	public String getNickname() {
+		return nickname;
+	}
 
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -59,7 +68,7 @@ public class UserDto implements Serializable {
 
 	@Override
 	public String toString() {
-		return "UserDto [id=" + id + ", activo=" + activo + ", nombre=" + nombre + ", fechaCreacion=" + fechaCreacion
+		return "UserDto [id=" + id + ", activo=" + activo + ", nombre=" + nombre + ", nickname="+nickname+ ", fechaCreacion=" + fechaCreacion
 				+ ", fechaActualizacion=" + fechaActualizacion + "]";
 	}
 
